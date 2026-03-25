@@ -1,6 +1,6 @@
 # btool_filter.sh
 
-A Splunk `btool` wrapper that adds stanza-level filtering, readable indented output, and colorized headers — making it easier to quickly scan large btool outputs for what you actually care about.
+A Splunk `btool` wrapper that adds stanza-level filtering, readable indented output, and colorized headers making it easier to quickly scan large btool outputs for what you actually care about.
 
 ## Features
 
@@ -108,11 +108,11 @@ Stanza headers default to **bold cyan**. Override with `-c <color>`.
 | `cyan` | `bcyan` ← default |
 | `white` | `bwhite` |
 
-Use `-c none` to disable color entirely — recommended when using `-o` to write to a file, since ANSI escape codes will otherwise appear in the file as raw characters.
+Use `-c none` to disable color entirely recommended when using `-o` to write to a file, since ANSI escape codes will otherwise appear in the file as raw characters.
 
 ## Pattern Matching Note
 
-The `-f` flag does a **case-insensitive substring match** against the entire stanza, including the header line and all key=value pairs. This means a pattern like `test` will match stanzas where `test` appears anywhere — including as part of a longer word like `latest` or `attest`. To narrow results, use a more specific pattern:
+The `-f` flag does a **case-insensitive substring match** against the entire stanza, including the header line and all key=value pairs. This means a pattern like `test` will match stanzas where `test` appears anywhere including as part of a longer word like `latest` or `attest`. To narrow results, use a more specific pattern:
 
 ```bash
 # Too broad — matches "latest", "attest", etc.
