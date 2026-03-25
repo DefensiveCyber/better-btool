@@ -1,4 +1,4 @@
-# btool_filter.sh
+# better_btool.sh
 
 A Splunk `btool` wrapper that adds stanza-level filtering, readable indented output, and colorized headers making it easier to quickly scan large btool outputs for what you actually care about.
 
