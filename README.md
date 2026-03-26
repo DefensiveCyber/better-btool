@@ -20,7 +20,7 @@ A Splunk `btool` wrapper that adds stanza-level filtering, readable indented out
 
 ```bash
 # Clone or download the script, then make it executable
-chmod +x btool_filter.sh
+chmod +x better_btool.sh
 
 # Optionally set your Splunk home if it differs from /opt/splunk
 export SPLUNK_HOME=/opt/splunk
@@ -29,7 +29,7 @@ export SPLUNK_HOME=/opt/splunk
 ## Usage
 
 ```
-btool_filter.sh [OPTIONS] -- <btool args>
+better_btool.sh [OPTIONS] -- <btool args>
 ```
 
 Everything after `--` is passed directly to `btool`. For example, `-- inputs list --debug` runs `splunk btool inputs list --debug`.
@@ -54,28 +54,28 @@ If `-e` and `-d` are both given, stanzas matching either condition are shown.
 
 ```bash
 # All inputs stanzas (default bold cyan headers, indented body)
-./btool_filter.sh -- inputs list
+./better_btool.sh -- inputs list
 
 # Show only enabled inputs
-./btool_filter.sh -e -- inputs list --debug
+./better_btool.sh -e -- inputs list --debug
 
 # Show only disabled transforms
-./btool_filter.sh -d -- transforms list
+./better_btool.sh -d -- transforms list
 
 # Show stanzas containing "syslog" anywhere in the stanza
-./btool_filter.sh -f "syslog" -- props list --debug
+./better_btool.sh -f "syslog" -- props list --debug
 
 # Combine: enabled stanzas that mention "monitor"
-./btool_filter.sh -e -f "monitor" -- inputs list --debug
+./better_btool.sh -e -f "monitor" -- inputs list --debug
 
 # Save results to a file (disable color to keep the file clean)
-./btool_filter.sh -e -c none -o results.txt -- inputs list --debug
+./better_btool.sh -e -c none -o results.txt -- inputs list --debug
 
 # Non-standard Splunk install path
-./btool_filter.sh -C /opt/splunkforwarder -e -- inputs list --debug
+./better_btool.sh -C /opt/splunkforwarder -e -- inputs list --debug
 
 # Point directly at the binary
-./btool_filter.sh -b /usr/local/bin/splunk -d -- transforms list
+./better_btool.sh -b /usr/local/bin/splunk -d -- transforms list
 ```
 
 ## Output Format
@@ -116,13 +116,13 @@ The `-f` flag does a **case-insensitive substring match** against the entire sta
 
 ```bash
 # Too broad — matches "latest", "attest", etc.
-./btool_filter.sh -f "test" -- inputs list
+./better_btool.sh -f "test" -- inputs list
 
 # More specific — matches stanzas with "test" as a path component
-./btool_filter.sh -f "/test/" -- inputs list
+./better_btool.sh -f "/test/" -- inputs list
 
 # Match a specific key=value
-./btool_filter.sh -f "index = test" -- inputs list
+./better_btool.sh -f "index = test" -- inputs list
 ```
 
 ## License
