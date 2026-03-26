@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 # =============================================================================
-# btool_filter.sh — Splunk btool wrapper with stanza-level filtering
+# better_btool.sh — Splunk btool wrapper with stanza-level filtering
 #
 # USAGE:
-#   btool_filter.sh [OPTIONS] -- <btool args>
+#   better_btool.sh [OPTIONS] -- <btool args>
 #
 # EXAMPLES:
-#   btool_filter.sh -e -- inputs list --debug
-#   btool_filter.sh -d -- transforms list
-#   btool_filter.sh -f "sourcetype" -- props list --debug
-#   btool_filter.sh -e -f "monitor" -- inputs list --debug
-#   btool_filter.sh -d -f "lookup" -- transforms list
-#   btool_filter.sh -f "syslog" -C /opt/splunk -- inputs list --debug
+#   better_btool.sh -e -- inputs list --debug
+#   better_btool.sh -d -- transforms list
+#   better_btool.sh -f "sourcetype" -- props list --debug
+#   better_btool.sh -e -f "monitor" -- inputs list --debug
+#   better_btool.sh -d -f "lookup" -- transforms list
+#   better_btool.sh -f "syslog" -C /opt/splunk -- inputs list --debug
 #
 # FLAGS (all optional, combinable):
 #   -e            Show only stanzas where something is enabled
